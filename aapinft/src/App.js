@@ -1,4 +1,6 @@
-import React from "react";
+import React,{useEffect} from "react";
+import "./index.css";
+import ScriptTag from 'react-script-tag';
 
 function App() {
   const firstList = [
@@ -15,6 +17,7 @@ function App() {
       content: "Tell me your stories to shout out STOP AAPI HATE"
     },
   ]
+
   return (
     <div style={{
       width: 1920,
@@ -294,6 +297,96 @@ function App() {
           fontWeight: "bold",
           marginBottom: 100
         }}>Support Georgia’s Asian American Community</div>
+
+<div style={{
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "space-between",
+          width: 1280,
+        }}>
+          <div style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "flex-start",
+            width: 510,
+          }}>
+
+               <div style={{
+          marginTop: 40,
+          fontSize: 24,
+          fontWeight: "bold",
+          color: "#000000",
+          marginBottom: 20,
+        }}>SUPPORT MY WORKS!</div>
+         <div style={{
+          width: 660,
+          opacity: 0.8,
+          fontSize: 18,
+          color: "#000000",
+          lineHeight: 1.56,
+          marginBottom: 40,
+        }}>I would be pleased to get donation for running AAPI.NFT and better works</div>
+        {/* <div style={{
+          width:530,
+          height:160,
+          marginTop:40,
+          borderRadius:8,
+          backgroundColor:"#3c3932"
+        }}> */}
+
+<div className="CustomEtherButton">
+  <ScriptTag isHydrating={true} type="text/javascript" src="https://cdn.rawgit.com/eth-button/eth-button/09673e85d517452e18a5248b96115bc552a0ac01/dist/eth-button.js"
+    data-address="0x0997B268C45Ca8675457B1975D460988AbB4Ab23"
+    data-meta="eth-button"></ScriptTag>
+  
+</div>
+
+
+          {/* <div style={{
+            display:"flex",
+            flexDirection:"row",
+            justifyContent:"space-between"
+          }}>
+            <div style={{
+              fontSize:21,
+              fontWeight:"bold",
+              color:"#ffffff",
+              marginLeft:20,
+              marginTop:23
+            }}>Give ETH to</div>
+          <div style={{
+            marginRight:40,
+            marginTop:23,
+            fontSize:21,
+            fontWeight:"bold",
+            color:"#e5bf78"
+          }}>0xa7483Eff8f765asdasda...</div>
+          </div>
+          
+          <div style={{
+                  display:"flex",
+                  flexDirection:"row",
+                  justifyContent:"space-between"
+          }}>
+<div>
+
+</div>
+<div>
+
+</div>
+          </div> */}
+
+          {/* </div> */}
+            </div>
+            <div style={{
+          marginTop: 40,
+          fontSize: 24,
+          fontWeight: "bold",
+          color: "#000000",
+          marginBottom: 20,
+        }}>Special Thanks to...</div>
+          </div>
+
         <div style={{
           fontSize: 32,
           fontWeight: "bold",
