@@ -1,6 +1,21 @@
-import React,{useEffect} from "react";
+import React, { useReducer, useRef } from "react";
 import "./index.css";
 import ScriptTag from 'react-script-tag';
+
+function reducer(state, action) {
+  switch (action.type) {
+    case 'HOME':
+      return 0;
+    case 'COLLECTION':
+      return 1;
+    case 'SUPPORT':
+      return 2;
+    case 'PARTNERS':
+      return 3;
+    default:
+      return state;
+  }
+}
 
 function App() {
   const firstList = [
@@ -18,23 +33,131 @@ function App() {
     },
   ]
 
+  const homeRef = useRef(null)
+  const homeScroll = () => homeRef.current.scrollIntoView({top: -80, behavior: 'smooth'})
+  const collectionRef = useRef(null)
+  const collectionScroll = () => collectionRef.current.scrollIntoView({top: -80, behavior: 'smooth'})
+  const supportRef = useRef(null)
+  const supportScroll = () => supportRef.current.scrollIntoView({top: -80, behavior: 'smooth'})
+  const partnersRef = useRef(null)
+  const partnersScroll = () => partnersRef.current.scrollIntoView({top: -80, behavior: 'smooth'})
+  const [category, dispatch] = useReducer(reducer, 0);
+  const home = () => {
+    dispatch({ type: "HOME" })
+    homeScroll()
+  }
+  const collection = () => {
+    dispatch({ type: "COLLECTION" })
+    collectionScroll()
+  }
+  const support = () => {
+    dispatch({ type: "SUPPORT" })
+    supportScroll()
+  }
+  const partners = () => {
+    dispatch({ type: "PARTNERS" })
+    partnersScroll()
+  }
+
   return (
     <div style={{
       width: 1920,
       backgroundColor: "#ffffff",
+      zIndex: 0,
+      position: "relative",
     }}>
       <div style={{
-        marginBottom: 100
-      }}>헤더 집어 넣기</div>
+        position: "fixed",
+        top: 0,
+        zIndex: 1,
+        width: 1280,
+        paddingLeft: 320,
+        paddingRight: 320,
+        paddingTop: 16,
+        paddingBottom: 16,
+        height: 48,
+        backgroundColor: "#ffffff",
+        boxShadow: "0 3px 5px 0 rgba(38, 37, 37, 0.12)",
+        display: "flex",
+        flexDirection: "row",
+        justifyContent: "space-between",
+      }}>
+        <div style={{
+          fontSize: 18,
+          fontWeight: "bold",
+          color: "#e5bf78",
+          alignSelf: "flex-end"
+        }}>AAPI.NFT</div>
+        <div style={{
+          display: "flex",
+          flexDirection: "row",
+          alignSelf: "center",
+          alignItems: "center",
+        }}>
+          <div onClick={home} style={{
+            fontSize: 20,
+            fontWeight: category === 0 ? "bold" : "normal",
+            color: "#000000",
+            cursor: "pointer",
+            marginRight: 20
+          }}>Home</div>
+          <div onClick={collection} style={{
+            fontSize: 20,
+            fontWeight: category === 1 ? "bold" : "normal",
+            color: "#000000",
+            cursor: "pointer",
+            marginRight: 20
+          }}>Collection</div>
+          <div onClick={support} style={{
+            fontSize: 20,
+            fontWeight: category === 2 ? "bold" : "normal",
+            color: "#000000",
+            cursor: "pointer",
+            marginRight: 20
+          }}>Support us</div>
+          <div onClick={partners} style={{
+            fontSize: 20,
+            fontWeight: category === 3 ? "bold" : "normal",
+            color: "#000000",
+            cursor: "pointer",
+            marginRight: 40
+          }}>Partners</div>
+          <div style={{
+            width: 48,
+            height: 48,
+            borderRadius: 24,
+            border: "solid 1px #707070",
+            backgroundColor: "#ffffff",
+            marginRight: 20
+          }} />
+          <div style={{
+            width: 48,
+            height: 48,
+            borderRadius: 24,
+            border: "solid 1px #707070",
+            backgroundColor: "#ffffff",
+            marginRight: 20
+          }} />
+          <div style={{
+            width: 48,
+            height: 48,
+            borderRadius: 24,
+            border: "solid 1px #707070",
+            backgroundColor: "#ffffff",
+          }} />
+        </div>
+      </div>
       <div style={{
         width: 1280,
         backgroundColor: "#ffffff",
         paddingLeft: 320,
         paddingRight: 320,
+        marginTop: 100,
         display: "flex",
         flexDirection: "column",
       }}>
-        <div style={{
+        <div ref={homeRef} style={{
+          scrollMarginTop: 90,
           display: "flex",
           flexDirection: "row",
           justifyContent: "space-between",
@@ -153,7 +276,8 @@ function App() {
             }}>I was born and raised in USA</div>
           </div>
         </div>
-        <div style={{
+        <div ref={collectionRef} style={{
+          scrollMarginTop: 90,
           fontSize: 32,
           fontWeight: "bold",
           color: "#000000",
@@ -216,7 +340,8 @@ function App() {
           marginTop: 10,
           textDecorationLine: "underline"
         }}>How it works?</div>
-        <div style={{
+        <div ref={supportRef} style={{
+          scrollMarginTop: 90,
           fontSize: 32,
           fontWeight: "bold",
           color: "#000000",
@@ -387,7 +512,8 @@ function App() {
         }}>Special Thanks to...</div>
           </div>
 
-        <div style={{
+        <div ref={partnersRef} style={{
+          scrollMarginTop: 90,
           fontSize: 32,
           fontWeight: "bold",
           color: "#000000",
