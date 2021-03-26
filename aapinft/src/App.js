@@ -1,7 +1,13 @@
-import React, { useReducer, useRef, useState } from "react";
+import React, { useReducer, useRef, useState,useEffect } from "react";
 import "./index.css";
 import ScriptTag from 'react-script-tag';
 import Web3 from "web3"
+
+import aapi1 from "./aapi1.png"
+import aapi2 from "./aapi2.png"
+import aapi3 from "./aapi3.png"
+import aapi4 from "./aapi4.png"
+import aapi5 from "./aapi5.png"
 
 function reducer(state, action) {
   switch (action.type) {
@@ -93,7 +99,7 @@ function App() {
   }
 
   function donation() {
-    var MY_ADDRESS = '0x7891338cC2d668bA268B69e3b8f85Cdf3660495E'
+    var MY_ADDRESS = '0x8A39eC10AE914CD71DE75A766D7Beb78C1286D0e'
     if (window.ethereum) {
       var web3 = new Web3(window.ethereum);
       try {
@@ -141,6 +147,12 @@ function App() {
 
   }
 
+  useEffect(()=>{
+    console.log("gi")
+  })
+function gethash(){
+
+}
   return (
     <div style={{
       width: 1920,
@@ -234,7 +246,7 @@ function App() {
         backgroundColor: "#ffffff",
         paddingLeft: 320,
         paddingRight: 320,
-        marginTop: 100,
+        marginTop: 200,
         display: "flex",
         flexDirection: "column",
       }}>
@@ -297,6 +309,14 @@ function App() {
               color: "#000000",
               textDecorationLine: "underline"
             }}>What is NFT?</div>
+               <div style={{
+          cursor: "pointer",
+          fontSize: 18,
+          fontWeight: "bold",
+          color: "#000000",
+          marginTop: 10,
+          textDecorationLine: "underline"
+        }}>How it works?</div>
           </div>
           <div style={{
             display: "flex",
@@ -414,14 +434,7 @@ function App() {
             )
           })}
         </div>
-        <div style={{
-          cursor: "pointer",
-          fontSize: 18,
-          fontWeight: "bold",
-          color: "#000000",
-          marginTop: 10,
-          textDecorationLine: "underline"
-        }}>How it works?</div>
+     
         <div ref={supportRef} style={{
           scrollMarginTop: 90,
           fontSize: 32,
@@ -444,31 +457,47 @@ function App() {
           alignItems: "flex-start",
           justifyContent: "space-between"
         }}>
+          <a href={"https://stopaapihate.org/"}>
           <div style={{
-            backgroundColor: "#000000",
+            
             width: 200,
             height: 200,
-          }}></div>
+          }}>
+            <img src={aapi1}/>
+          </div>
+          </a>
+
+          <a href={"https://hateisavirus.org/"} target="_blank">
           <div style={{
-            backgroundColor: "#000000",
+            
             width: 200,
             height: 200,
-          }}></div>
+          }}><img src={aapi2}/></div>
+</a>
+          <a href={"https://aapip.org/"} target="_blank">
           <div style={{
-            backgroundColor: "#000000",
+            
             width: 200,
             height: 200,
-          }}></div>
+          }}><img src={aapi3}/></div>
+</a>
+          <a href={"https://www.gofundme.com/"} target="_blank">
           <div style={{
-            backgroundColor: "#000000",
+            display:"flex",
+            flexDirection:"row",
+            alignItems:"center",
+            justifyContent:"space-between",
             width: 200,
             height: 200,
-          }}></div>
+          }}><img src={aapi4}/></div>
+</a>
+          <a href={"https://www.apcf.org/"} target="_blank">
           <div style={{
-            backgroundColor: "#000000",
+            
             width: 200,
             height: 200,
-          }}></div>
+          }}><img src={aapi5}/></div>
+          </a>
         </div>
         <div style={{
           marginTop: 40,
@@ -477,6 +506,7 @@ function App() {
           color: "#000000",
           marginBottom: 20,
         }}>Directly Funding Victims’ fund</div>
+        <a href={"https://www.gofundme.com/f/sf-api-victims-and-survivors-assistance-fund"} target="_blank">
         <div style={{
           fontSize: 18,
           opacity: 0.8,
@@ -486,6 +516,8 @@ function App() {
           fontWeight: "bold",
           marginBottom: 20
         }}>Victims and Survivors Fund (San Francisco Bay Area)</div>
+        </a>
+        <a href={"https://www.classy.org/give/326018/#!/donation/checkout"} target="_blank">
         <div style={{
           fontSize: 18,
           opacity: 0.8,
@@ -495,6 +527,8 @@ function App() {
           fontWeight: "bold",
           marginBottom: 20
         }}>Oakland Chinatown Victims Fund</div>
+        </a>
+        <a href={"https://actionnetwork.org/fundraising/support-georgias-asian-american-community/"} target="_blank">
         <div style={{
           fontSize: 18,
           opacity: 0.8,
@@ -504,6 +538,7 @@ function App() {
           fontWeight: "bold",
           marginBottom: 100
         }}>Support Georgia’s Asian American Community</div>
+        </a>
 
         <div style={{
           display: "flex",
@@ -557,7 +592,7 @@ function App() {
                   fontSize: 21,
                   fontWeight: "bold",
                   color: "#e5bf78"
-                }}>0xa7483Eff8f765asdasda...</div>
+                }}>0x8A39eC10AE914CD71DE7...</div>
               </div>
 
               <div style={{
@@ -582,6 +617,7 @@ function App() {
                   />
                 </div>
                 <div style={{
+                  cursor: "pointer",
                   marginTop: 40,
                   marginRight: 20,
                   width: 180,
@@ -593,6 +629,7 @@ function App() {
 
                     <div
                       onClick={donation} style={{
+                        
                         marginTop: 11.2,
                         marginLeft: 52,
                         fontSize: 18,
@@ -659,7 +696,7 @@ function App() {
           color: "#000000",
           marginTop: 100,
           marginBottom: 40
-        }}>Meet Partners of AAPI.NFT</div>
+        }}>Meet Our AAPI artist</div>
         <div style={{
           display: "flex",
           flexDirection: "row",
