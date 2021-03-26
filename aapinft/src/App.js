@@ -1,6 +1,7 @@
-import React, { useReducer, useRef } from "react";
+import React, { useReducer, useRef,useState } from "react";
 import "./index.css";
 import ScriptTag from 'react-script-tag';
+import Web3 from "web3"
 
 function reducer(state, action) {
   switch (action.type) {
@@ -32,7 +33,22 @@ function App() {
       content: "Tell me your stories to shout out STOP AAPI HATE"
     },
   ]
-
+  const thanksList=[
+    {
+      color:"#9b3838",
+      add:"0xasasdasdsaasddkasdkqkw",
+      amount:"0.1 ETH"
+    },
+    {color:"#9b3838",
+    add:"0xasasdasdsaasddkasdkqkw",
+    amount:"0.1 ETH"}
+,
+{
+  color:"#9b3838",
+      add:"0xasasdasdsaasddkasdkqkw",
+      amount:"0.1 ETH"
+}
+  ]
   const homeRef = useRef(null)
   const homeScroll = () => homeRef.current.scrollIntoView({top: -80, behavior: 'smooth'})
   const collectionRef = useRef(null)
@@ -57,6 +73,68 @@ function App() {
   const partners = () => {
     dispatch({ type: "PARTNERS" })
     partnersScroll()
+  }
+  const [inputs, setInputs] = useState({
+    name: '',
+    nickname: '',
+  })
+  const { name, nickname } = inputs
+  const onChange = (e) => {
+    const { name, value } = e.target
+    const nextInputs = {
+      ...inputs,
+      [name]: value,
+    }
+    setInputs(nextInputs)
+  }
+
+  function donation() {
+    var MY_ADDRESS = '0x7891338cC2d668bA268B69e3b8f85Cdf3660495E'
+    if (window.ethereum) {
+      var web3 = new Web3(window.ethereum);
+      try {
+        window.ethereum.enable().then(function () {
+         web3.eth.getAccounts((error,accounts)=>{
+          web3.eth.sendTransaction(
+            {
+              to: MY_ADDRESS,
+              from: accounts[0],
+              value: Web3.utils.toWei(name, 'ether'),
+            },
+          )
+         })     
+        });
+      } catch (e) {
+       console.log("Fuck")
+      }
+    }
+    // Legacy DApp Browsers
+    else if (window.web3) {
+      var web3 = new Web3(window.web3.currentProvider);
+      try {
+        window.ethereum.enable().then(function () {
+         web3.eth.getAccounts((error,accounts)=>{
+          web3.eth.sendTransaction(
+            {
+              to: MY_ADDRESS,
+              from: accounts[0],
+              value: Web3.utils.toWei(name, 'ether'),
+            },
+          )
+         })     
+        });
+      } catch (e) {
+       console.log("Fuck")
+      }
+    }
+    else {
+      alert('You have to install MetaMask !');
+    }
+    if (typeof web3 === 'undefined') {
+      console.log("error")
+    }
+
+
   }
 
   return (
@@ -451,58 +529,83 @@ function App() {
           lineHeight: 1.56,
           marginBottom: 40,
         }}>I would be pleased to get donation for running AAPI.NFT and better works</div>
-        {/* <div style={{
-          width:530,
-          height:160,
-          marginTop:40,
-          borderRadius:8,
-          backgroundColor:"#3c3932"
-        }}> */}
+      
 
-<div className="CustomEtherButton">
-  <ScriptTag isHydrating={true} type="text/javascript" src="https://cdn.rawgit.com/eth-button/eth-button/09673e85d517452e18a5248b96115bc552a0ac01/dist/eth-button.js"
-    data-address="0x0997B268C45Ca8675457B1975D460988AbB4Ab23"
-    data-meta="eth-button"></ScriptTag>
-  
-</div>
+      <div style={{
+              width: 530,
+              height: 160,
+              marginTop: 40,
+              borderRadius: 8,
+              backgroundColor: "#3c3932"
+            }}>
+              <div style={{
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "space-between"
+              }}>
+                <div style={{
+                  fontSize: 21,
+                  fontWeight: "bold",
+                  color: "#ffffff",
+                  marginLeft: 20,
+                  marginTop: 23
+                }}>Give ETH to</div>
+                <div style={{
+                  marginRight: 40,
+                  marginTop: 23,
+                  fontSize: 21,
+                  fontWeight: "bold",
+                  color: "#e5bf78"
+                }}>0xa7483Eff8f765asdasda...</div>
+              </div>
 
+              <div style={{
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "space-between"
+              }}>
+                
+                <div >
+                  <input style={{
+                      marginTop:40,
+                      marginLeft:20,
+                      width:270,
+                      height:44,
+                      borderRadius:8
+                  }}
+                    name="name"      //위에서 name의 값을 가져와 타겟을 가져온다.
+                    placeholder="0.0"
+                    onChange={onChange}
+                    value={name}     //
+                    type="number"
+                  />
+                </div>
+                <div style={{
+                  marginTop: 40,
+                  marginRight: 20,
+                  width: 180,
+                  height: 48,
+                  backgroundColor: "#e5bf78",
+                  borderRadius: 8
+                }}>
+                  <div className="donate">
 
-          {/* <div style={{
-            display:"flex",
-            flexDirection:"row",
-            justifyContent:"space-between"
-          }}>
-            <div style={{
-              fontSize:21,
-              fontWeight:"bold",
-              color:"#ffffff",
-              marginLeft:20,
-              marginTop:23
-            }}>Give ETH to</div>
-          <div style={{
-            marginRight:40,
-            marginTop:23,
-            fontSize:21,
-            fontWeight:"bold",
-            color:"#e5bf78"
-          }}>0xa7483Eff8f765asdasda...</div>
-          </div>
-          
-          <div style={{
-                  display:"flex",
-                  flexDirection:"row",
-                  justifyContent:"space-between"
-          }}>
-<div>
+                    <div
+                      onClick={donation} style={{
+                        marginTop: 11.2,
+                        marginLeft: 52,
+                        fontSize: 18,
+                        fontWeight: "bold",
+                        color: "#ffffff"
+                      }}>DONATE</div>
+                  </div>
+                </div>
+              </div>
 
-</div>
-<div>
-
-</div>
-          </div> */}
-
-          {/* </div> */}
             </div>
+            </div>
+
+            <div>
             <div style={{
           marginTop: 40,
           fontSize: 24,
@@ -510,8 +613,26 @@ function App() {
           color: "#000000",
           marginBottom: 20,
         }}>Special Thanks to...</div>
-          </div>
+<div>
+{thanksList.map((item) => {
+            return (
+          <div style={{
+            display: "flex",
+            flexDirection: "row",
+            alignItems: "flex-start",
+            justifyContent: "space-around"
+          }}>
+                <div>{item.color}</div>
+              <div>{item.add}</div>
+              <div>{item.amount}</div>
+              </div>
+            )
+          })}
+</div>
 
+
+          </div>
+          </div>
         <div ref={partnersRef} style={{
           scrollMarginTop: 90,
           fontSize: 32,
