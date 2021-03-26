@@ -1,4 +1,4 @@
-import React, { useReducer, useRef,useState } from "react";
+import React, { useReducer, useRef, useState } from "react";
 import "./index.css";
 import ScriptTag from 'react-script-tag';
 import Web3 from "web3"
@@ -33,30 +33,34 @@ function App() {
       content: "Tell me your stories to shout out STOP AAPI HATE"
     },
   ]
-  const thanksList=[
+  const thanksList = [
     {
-      color:"#9b3838",
-      add:"0xasasdasdsaasddkasdkqkw",
-      amount:"0.1 ETH"
+      add: "0xasasdasdsaasddkasdkqkw",
+      amount: "0.1 ETH"
     },
-    {color:"#9b3838",
-    add:"0xasasdasdsaasddkasdkqkw",
-    amount:"0.1 ETH"}
-,
-{
-  color:"#9b3838",
-      add:"0xasasdasdsaasddkasdkqkw",
-      amount:"0.1 ETH"
-}
+    {
+      add: "0xasasdasdsaasddkasdkqkw",
+      amount: "0.1 ETH"
+    }
+    ,
+    {
+      add: "0xasasdasdsaasddkasdkqkw",
+      amount: "0.1 ETH"
+    }
+    ,
+    {
+      add: "0xasasdasdsaasddkasdkqkw",
+      amount: "0.1 ETH"
+    }
   ]
   const homeRef = useRef(null)
-  const homeScroll = () => homeRef.current.scrollIntoView({top: -80, behavior: 'smooth'})
+  const homeScroll = () => homeRef.current.scrollIntoView({ top: -80, behavior: 'smooth' })
   const collectionRef = useRef(null)
-  const collectionScroll = () => collectionRef.current.scrollIntoView({top: -80, behavior: 'smooth'})
+  const collectionScroll = () => collectionRef.current.scrollIntoView({ top: -80, behavior: 'smooth' })
   const supportRef = useRef(null)
-  const supportScroll = () => supportRef.current.scrollIntoView({top: -80, behavior: 'smooth'})
+  const supportScroll = () => supportRef.current.scrollIntoView({ top: -80, behavior: 'smooth' })
   const partnersRef = useRef(null)
-  const partnersScroll = () => partnersRef.current.scrollIntoView({top: -80, behavior: 'smooth'})
+  const partnersScroll = () => partnersRef.current.scrollIntoView({ top: -80, behavior: 'smooth' })
   const [category, dispatch] = useReducer(reducer, 0);
   const home = () => {
     dispatch({ type: "HOME" })
@@ -94,18 +98,18 @@ function App() {
       var web3 = new Web3(window.ethereum);
       try {
         window.ethereum.enable().then(function () {
-         web3.eth.getAccounts((error,accounts)=>{
-          web3.eth.sendTransaction(
-            {
-              to: MY_ADDRESS,
-              from: accounts[0],
-              value: Web3.utils.toWei(name, 'ether'),
-            },
-          )
-         })     
+          web3.eth.getAccounts((error, accounts) => {
+            web3.eth.sendTransaction(
+              {
+                to: MY_ADDRESS,
+                from: accounts[0],
+                value: Web3.utils.toWei(name, 'ether'),
+              },
+            )
+          })
         });
       } catch (e) {
-       console.log("Fuck")
+        console.log("Fuck")
       }
     }
     // Legacy DApp Browsers
@@ -113,18 +117,18 @@ function App() {
       var web3 = new Web3(window.web3.currentProvider);
       try {
         window.ethereum.enable().then(function () {
-         web3.eth.getAccounts((error,accounts)=>{
-          web3.eth.sendTransaction(
-            {
-              to: MY_ADDRESS,
-              from: accounts[0],
-              value: Web3.utils.toWei(name, 'ether'),
-            },
-          )
-         })     
+          web3.eth.getAccounts((error, accounts) => {
+            web3.eth.sendTransaction(
+              {
+                to: MY_ADDRESS,
+                from: accounts[0],
+                value: Web3.utils.toWei(name, 'ether'),
+              },
+            )
+          })
         });
       } catch (e) {
-       console.log("Fuck")
+        console.log("Fuck")
       }
     }
     else {
@@ -501,9 +505,10 @@ function App() {
           marginBottom: 100
         }}>Support Georgia’s Asian American Community</div>
 
-<div style={{
+        <div style={{
           display: "flex",
           flexDirection: "row",
+          alignItems: "flex-start",
           justifyContent: "space-between",
           width: 1280,
         }}>
@@ -511,30 +516,26 @@ function App() {
             display: "flex",
             flexDirection: "column",
             alignItems: "flex-start",
-            width: 510,
+            width: 620,
           }}>
-
-               <div style={{
-          marginTop: 40,
-          fontSize: 24,
-          fontWeight: "bold",
-          color: "#000000",
-          marginBottom: 20,
-        }}>SUPPORT MY WORKS!</div>
-         <div style={{
-          width: 660,
-          opacity: 0.8,
-          fontSize: 18,
-          color: "#000000",
-          lineHeight: 1.56,
-          marginBottom: 40,
-        }}>I would be pleased to get donation for running AAPI.NFT and better works</div>
-      
-
-      <div style={{
+            <div style={{
+              marginTop: 40,
+              fontSize: 24,
+              fontWeight: "bold",
+              color: "#000000",
+              marginBottom: 20,
+            }}>SUPPORT MY WORKS!</div>
+            <div style={{
+              width: 660,
+              opacity: 0.8,
+              fontSize: 18,
+              color: "#000000",
+              lineHeight: 1.56,
+              marginBottom: 40,
+            }}>I would be pleased to get donation for running AAPI.NFT and better works</div>
+            <div style={{
               width: 530,
               height: 160,
-              marginTop: 40,
               borderRadius: 8,
               backgroundColor: "#3c3932"
             }}>
@@ -564,14 +565,14 @@ function App() {
                 flexDirection: "row",
                 justifyContent: "space-between"
               }}>
-                
+
                 <div >
                   <input style={{
-                      marginTop:40,
-                      marginLeft:20,
-                      width:270,
-                      height:44,
-                      borderRadius:8
+                    marginTop: 40,
+                    marginLeft: 20,
+                    width: 270,
+                    height: 44,
+                    borderRadius: 8
                   }}
                     name="name"      //위에서 name의 값을 가져와 타겟을 가져온다.
                     placeholder="0.0"
@@ -603,36 +604,54 @@ function App() {
               </div>
 
             </div>
-            </div>
-
-            <div>
-            <div style={{
-          marginTop: 40,
-          fontSize: 24,
-          fontWeight: "bold",
-          color: "#000000",
-          marginBottom: 20,
-        }}>Special Thanks to...</div>
-<div>
-{thanksList.map((item) => {
-            return (
+          </div>
           <div style={{
+            width: 510,
             display: "flex",
-            flexDirection: "row",
+            flexDirection: "column",
             alignItems: "flex-start",
-            justifyContent: "space-around"
           }}>
-                <div>{item.color}</div>
-              <div>{item.add}</div>
-              <div>{item.amount}</div>
-              </div>
-            )
-          })}
-</div>
-
-
+            <div style={{
+              marginTop: 40,
+              fontSize: 24,
+              fontWeight: "bold",
+              color: "#000000",
+              marginBottom: 20,
+            }}>Special Thanks to...</div>
+            <div>
+              {thanksList.map((item) => {
+                return (
+                  <div style={{
+                    display: "flex",
+                    flexDirection: "row",
+                    alignItems: "center",
+                    justifyContent: "space-around",
+                    marginBottom: 10,
+                  }}>
+                    <div style={{
+                      width: 40,
+                      height: 40,
+                      borderRadius: 20,
+                      backgroundColor: "#9b3838",
+                      marginRight: 16
+                    }} />
+                    <div style={{
+                      fontSize: 18,
+                      color: "#000000",
+                      marginRight: 70,
+                    }}>{item.add}</div>
+                    <div style={{
+                      width: 150,
+                      textAlign: "right",
+                      fontSize: 18,
+                      color: "#000000"
+                    }}>{item.amount}</div>
+                  </div>
+                )
+              })}
+            </div>
           </div>
-          </div>
+        </div>
         <div ref={partnersRef} style={{
           scrollMarginTop: 90,
           fontSize: 32,
@@ -656,9 +675,10 @@ function App() {
                   height: 180,
                   backgroundColor: "#d8d8d8",
                   borderRadius: 90
-                }} /> 
+                }} />
               </>
-          )})}
+            )
+          })}
         </div>
         <div style={{
           fontSize: 21,
