@@ -50,6 +50,7 @@ function App() {
 
   const firstList = [
     {
+      type:1,
       title: "FOX EYE",
       content: `Yes I have fox eye. 
       But no reasons to be insulted.`,
@@ -58,6 +59,7 @@ function App() {
       url:"https://opensea.io/assets/0x495f947276749ce646f68ac8c248420045cb7b5e/59345103804510908063408009946767618438349379765466021588333484308312602181633"
     },
     {
+      type:2,
       title: "ASIAN STEREOTYPE",
       content: `Look at him. That’s my quant. Look at his face!! 
       Look at this eyes. His name is Yang. 
@@ -67,6 +69,7 @@ function App() {
       url:"https://opensea.io/assets/0x495f947276749ce646f68ac8c248420045cb7b5e/59345103804510908063408009946767618438349379765466021588333484309412113809409"
     },
     {
+      type:1,
       title: "MASSACRE",
       content: " Inspired by Myanmar Democracy, Georgia Atalanta Hate crime. Is it blood? Or rose blossom?",
       img:mas,
@@ -547,12 +550,21 @@ function gethash(){
 
 <a href={item.url} target="_blank">
                     
-            
-                  <img style={{width:400,
+                {item.type==1 ? 
+                    <img style={{width:400,
+                      height:400,
+                      borderRadius:8}} src={item.img}></img>
+                      
+                      
+                : 
+                <img style={{width:400,
                   maxHeight:400,
                   borderRadius:8}} src={item.img}></img>
                   
                   
+                }
+
+              
                   </a>
 
 
