@@ -55,7 +55,7 @@ function App() {
       content: `Yes I have fox eye. 
       But no reasons to be insulted.`,
       img:stopasian,
-      drawn:"Drawn by Lucyh Wang",
+      drawn:"Drawn by Lucy Wang",
       url:"https://opensea.io/assets/0x495f947276749ce646f68ac8c248420045cb7b5e/59345103804510908063408009946767618438349379765466021588333484308312602181633"
     },
     {
@@ -219,6 +219,8 @@ function gethash(){
       position: "relative",
     }}>
       <div style={{
+        position:"fixed",
+        top:0,
         zIndex: 1,
         width: 1280,
         paddingLeft: 200,
@@ -454,7 +456,7 @@ function gethash(){
           marginBottom: 20
         }}>AS AN ARTIST WE WILL DO WHAT WE CAN DO</div>
 
-<div style={{
+{/* <div style={{
           width: 660,
           opacity: 0.8,
 
@@ -462,8 +464,8 @@ function gethash(){
           lineHeight: 1.56,
           marginBottom: 40,
         }}>All pieces are inspired by AAPI stories and my own experience.  As an artist and blockchain enthusiast, I would like to leave our first movement on blockchain.
-        My works will be traded in opeansea.io and 100% sales will be donated to support AAPI community movements,</div>
-        {/* <div style={{
+        My works will be traded in opeansea.io and 100% sales will be donated to support AAPI community movements,</div> */}
+        <div style={{
           width: 660,
           opacity: 0.8,
           fontSize: 18,
@@ -482,32 +484,43 @@ function gethash(){
         
         <div 
         style={{
+          flexDirection:"row",
+          alignItems:"center",
+          display:"flex",
+          justifyContent:"flex-start"
+        }}> 
+        
+        <div style={{
           
-          display:"flex"
-        }}> <div style={{
-          width: 660,
           opacity: 0.8,
           fontSize: 18,
           color: "#000000",
           lineHeight: 1.56,
           
         }}>
-        Our works will be traded in</div><div style={{
-          width: 660,
+        Our works will be traded in</div>
+        <a href={"https://opensea.io/accounts/AAPINFT"} target="_blank">
+        <div style={{
+          marginLeft:5,
+          marginRight:5,
           opacity: 0.8,
           fontSize: 18,
           color: "#000000",
           lineHeight: 1.56,
           
-        }}> opensea.io </div><div style={{
-          width: 660,
+        }}> opensea.io </div>
+         </a>
+         <div style={{
+          
           opacity: 0.8,
           fontSize: 18,
           color: "#000000",
           lineHeight: 1.56,
           
-        }}>and 100% sales will be donated to support </div> */}
-         {/* </div> */}
+        }}>and 100% sales will be donated to support </div>
+
+
+         </div>
        
         
         
