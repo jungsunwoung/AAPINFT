@@ -1,4 +1,4 @@
-import React, { useReducer, useRef, useState,useEffect } from "react";
+import React, { useReducer, useRef, useState, useEffect } from "react";
 import "./index.css";
 import ScriptTag from 'react-script-tag';
 import Web3 from "web3"
@@ -43,58 +43,58 @@ function App() {
 
   useEffect(() => {
     ReactGA.initialize("UA-167979880-1")
-    ReactGA.set({page: window.location.pathname});
+    ReactGA.set({ page: window.location.pathname });
     ReactGA.pageview(window.location.pathname + window.location.search);
-   }, []);
+  }, []);
 
 
   const firstList = [
     {
-      type:1,
+      type: 1,
       title: "FOX EYE",
       content: `Yes I have fox eye. 
       But no reasons to be insulted.`,
-      img:stopasian,
-      drawn:"Drawn by Lucy Wang",
-      url:"https://opensea.io/assets/0x495f947276749ce646f68ac8c248420045cb7b5e/59345103804510908063408009946767618438349379765466021588333484308312602181633"
+      img: stopasian,
+      drawn: "Drawn by Lucy Wang",
+      url: "https://opensea.io/assets/0x495f947276749ce646f68ac8c248420045cb7b5e/59345103804510908063408009946767618438349379765466021588333484308312602181633"
     },
     {
-      type:2,
+      type: 2,
       title: "ASIAN STEREOTYPE",
       content: `Look at him. That’s my quant. Look at his face!! 
       Look at this eyes. His name is Yang. 
       He doesn’t even speak English! - Big Short -`,
-      img:quant,
-      drawn:"Drawn by AAPI.NFT",
-      url:"https://opensea.io/assets/0x495f947276749ce646f68ac8c248420045cb7b5e/59345103804510908063408009946767618438349379765466021588333484309412113809409"
+      img: quant,
+      drawn: "Drawn by AAPI.NFT",
+      url: "https://opensea.io/assets/0x495f947276749ce646f68ac8c248420045cb7b5e/59345103804510908063408009946767618438349379765466021588333484309412113809409"
     },
     {
-      type:1,
+      type: 1,
       title: "MASSACRE",
       content: " Inspired by Myanmar Democracy, Georgia Atalanta Hate crime. Is it blood? Or rose blossom?",
-      img:mas,
-      drawn:"Drawn by Min Maw Tun",
-      url:"https://opensea.io/assets/0x495f947276749ce646f68ac8c248420045cb7b5e/59345103804510908063408009946767618438349379765466021588333484310511625437185"
+      img: mas,
+      drawn: "Drawn by Min Maw Tun",
+      url: "https://opensea.io/assets/0x495f947276749ce646f68ac8c248420045cb7b5e/59345103804510908063408009946767618438349379765466021588333484310511625437185"
     },
   ]
-  const artistList=[
+  const artistList = [
     {
-      img:AAPI
+      img: AAPI
     },
     {
-      img:Lucy
+      img: Lucy
     },
     {
-      img:Jenn
+      img: Jenn
     },
     {
-      img:Sak
+      img: Sak
     },
     {
-      img:Jake
+      img: Jake
     },
     {
-      img:David
+      img: David
     },
   ]
   const thanksList = [
@@ -192,7 +192,6 @@ function App() {
           })
         });
       } catch (e) {
-        console.log("Fuck")
       }
     }
     else {
@@ -201,16 +200,25 @@ function App() {
     if (typeof web3 === 'undefined') {
       console.log("error")
     }
-
-
   }
 
-  useEffect(()=>{
-    console.log("gi")
-  })
-function gethash(){
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+  }, [])
 
-}
+  const handleScroll = () => {
+    if (window.pageYOffset < 700) {
+      dispatch({ type: "HOME" })
+    } else if (window.pageYOffset < 1600) {
+      dispatch({ type: "COLLECTION" })
+    } else if (window.pageYOffset < 2700) {
+      dispatch({ type: "SUPPORT" })
+    } else {
+      dispatch({ type: "PARTNERS" })
+    }
+  }
+
+  
   return (
     <div style={{
       width: 1920,
@@ -219,8 +227,8 @@ function gethash(){
       position: "relative",
     }}>
       <div style={{
-        position:"fixed",
-        top:0,
+        position: "fixed",
+        top: 0,
         zIndex: 1,
         width: 1280,
         paddingLeft: 200,
@@ -274,34 +282,34 @@ function gethash(){
             cursor: "pointer",
             marginRight: 40
           }}>Artists</div>
-         <a href={"https://twitter.com/AapiNft"} target="_blank" >
-          <div >
-            <img style={{
+          <a href={"https://twitter.com/AapiNft"} target="_blank" >
+            <div >
+              <img style={{
                 width: 48,
-            height: 48,
-            backgroundColor: "#ffffff",
-            marginRight: 20
-            }} src={twit}></img></div> 
-            </a>
+                height: 48,
+                backgroundColor: "#ffffff",
+                marginRight: 20
+              }} src={twit}></img></div>
+          </a>
           <a href={"https://www.instagram.com/aapi.nft/"} target="_blank">
-          <div >
-            <img style={{
+            <div >
+              <img style={{
                 width: 48,
-            height: 48,
-            backgroundColor: "#ffffff",
-            marginRight: 20
-            }} src={ins}></img>
-          </div>
+                height: 48,
+                backgroundColor: "#ffffff",
+                marginRight: 20
+              }} src={ins}></img>
+            </div>
           </a>
           <a href={"https://t.me/aapinft"} target="_blank">
-          <div >
-            <img style={{
+            <div >
+              <img style={{
                 width: 48,
-            height: 48,
-            backgroundColor: "#ffffff",
-            marginRight: 20
-            }} src={tel}></img>   
-          </div>
+                height: 48,
+                backgroundColor: "#ffffff",
+                marginRight: 20
+              }} src={tel}></img>
+            </div>
           </a>
         </div>
       </div>
@@ -359,33 +367,33 @@ function gethash(){
               alignItems: "center"
             }}>
               <a href={"https://docs.google.com/forms/d/e/1FAIpQLSeo1t9c2r07Uxnd-ZjPT19_rxzuZr6a96NYwUim0a_f_ADhhA/viewform?usp=sf_link"} target="_blank" >
-              <div style={{
-                marginLeft:50,
-                textAlign: "center",
-                textDecorationLine:"none"
-              }}>
-                <input style={{
-                  fontSize: 18,
-                  fontWeight: "bold",
-                  outline:0,
-                  backgroundColor:"#e6bf78",
-                  border:0,
-                  color:"#ffffff",
-                  cursor:"pointer"
-                }}value="Tell me your Story"></input>
+                <div style={{
+                  marginLeft: 50,
+                  textAlign: "center",
+                  textDecorationLine: "none"
+                }}>
+                  <input style={{
+                    fontSize: 18,
+                    fontWeight: "bold",
+                    outline: 0,
+                    backgroundColor: "#e6bf78",
+                    border: 0,
+                    color: "#ffffff",
+                    cursor: "pointer"
+                  }} value="Tell me your Story"></input>
                 </div>
               </a>
             </div>
-            
+
             <a href={"https://opensea.io/blog/guides/non-fungible-tokens/"} target="_blank">
-            <div style={{
-              cursor: "pointer",
-              fontSize: 18,
-              fontWeight: "bold",
-              color: "#000000",
-              textDecorationLine: "underline"
-            }}>What is NFT?</div>
-          </a>
+              <div style={{
+                cursor: "pointer",
+                fontSize: 18,
+                fontWeight: "bold",
+                color: "#000000",
+                textDecorationLine: "underline"
+              }}>What is NFT?</div>
+            </a>
           </div>
           <div style={{
             display: "flex",
@@ -456,7 +464,7 @@ function gethash(){
           marginBottom: 20
         }}>AS AN ARTIST WE WILL DO WHAT WE CAN DO</div>
 
-{/* <div style={{
+        {/* <div style={{
           width: 660,
           opacity: 0.8,
 
@@ -471,59 +479,59 @@ function gethash(){
           fontSize: 18,
           color: "#000000",
           lineHeight: 1.56,
-          
+
         }}>All pieces are inspired by AAPI stories and my own experience. As an artist and</div> <div style={{
           width: 660,
           opacity: 0.8,
           fontSize: 18,
           color: "#000000",
           lineHeight: 1.56,
-          
+
         }}>
-        blockchain enthusiast, we would like to leave our first movement on blockchain. </div> 
-        
-        <div 
-        style={{
-          flexDirection:"row",
-          alignItems:"center",
-          display:"flex",
-          justifyContent:"flex-start"
-        }}> 
-        
-        <div style={{
-          
-          opacity: 0.8,
-          fontSize: 18,
-          color: "#000000",
-          lineHeight: 1.56,
-          
-        }}>
-        Our works will be traded in</div>
-        <a href={"https://opensea.io/accounts/AAPINFT"} target="_blank">
-        <div style={{
-          marginLeft:5,
-          marginRight:5,
-          opacity: 0.8,
-          fontSize: 18,
-          color: "#000000",
-          lineHeight: 1.56,
-          
-        }}> opensea.io </div>
-         </a>
-         <div style={{
-          
-          opacity: 0.8,
-          fontSize: 18,
-          color: "#000000",
-          lineHeight: 1.56,
-          
-        }}>and 100% sales will be donated to support </div>
+          blockchain enthusiast, we would like to leave our first movement on blockchain. </div>
+
+        <div
+          style={{
+            flexDirection: "row",
+            alignItems: "center",
+            display: "flex",
+            justifyContent: "flex-start"
+          }}>
+
+          <div style={{
+
+            opacity: 0.8,
+            fontSize: 18,
+            color: "#000000",
+            lineHeight: 1.56,
+
+          }}>
+            Our works will be traded in</div>
+          <a href={"https://opensea.io/accounts/AAPINFT"} target="_blank">
+            <div style={{
+              marginLeft: 5,
+              marginRight: 5,
+              opacity: 0.8,
+              fontSize: 18,
+              color: "#000000",
+              lineHeight: 1.56,
+
+            }}> opensea.io </div>
+          </a>
+          <div style={{
+
+            opacity: 0.8,
+            fontSize: 18,
+            color: "#000000",
+            lineHeight: 1.56,
+
+          }}>and 100% sales will be donated to support </div>
 
 
-         </div>
-       
-        
-        
+        </div>
+
+
+
         <div style={{
           width: 660,
           opacity: 0.8,
@@ -532,7 +540,7 @@ function gethash(){
           lineHeight: 1.56,
           marginBottom: 40,
         }}>
-        AAPI community movements.</div>
+          AAPI community movements.</div>
         <div style={{
           display: "flex",
           flexDirection: "row",
@@ -547,35 +555,39 @@ function gethash(){
                 alignItems: "flex-start",
               }}>
                 <div style={{
-                  
+
                   width: 400,
                   height: 400,
                   borderRadius: 8,
                   marginBottom: 20,
-     display:"flex",
-     flexDirection:"row",
-     alignItems:"center",
-     justifyContent:"space-between",
+                  display: "flex",
+                  flexDirection: "row",
+                  alignItems: "center",
+                  justifyContent: "space-between",
                 }}>
 
 
-<a href={item.url} target="_blank">
-                    
-                {item.type==1 ? 
-                    <img style={{width:400,
-                      height:400,
-                      borderRadius:8}} src={item.img}></img>
-                      
-                      
-                : 
-                <img style={{width:400,
-                  maxHeight:400,
-                  borderRadius:8}} src={item.img}></img>
-                  
-                  
-                }
+                  <a href={item.url} target="_blank">
 
-              
+                    {item.type == 1 ?
+                      <img style={{
+                        width: 400,
+                        height: 400,
+                        borderRadius: 8
+                      }} src={item.img}></img>
+
+
+                      :
+                      <img style={{
+                        width: 400,
+                        maxHeight: 400,
+                        borderRadius: 8
+                      }} src={item.img}></img>
+
+
+                    }
+
+
                   </a>
 
 
@@ -589,7 +601,7 @@ function gethash(){
                 }}>{item.title}</div>
                 <div style={{
                   width: 400,
-                  height:80,
+                  height: 80,
                   opacity: 0.8,
                   fontSize: 18,
                   color: "#000000",
@@ -597,18 +609,18 @@ function gethash(){
                   marginBottom: 10
                 }}>{item.content}</div>
                 <div
-                style={{
-                  fontSize:18,
-                  fontWeight:"bold",
-                  marginTop:10
-                }}>
+                  style={{
+                    fontSize: 18,
+                    fontWeight: "bold",
+                    marginTop: 10
+                  }}>
                   {item.drawn}
                 </div>
               </div>
             )
           })}
         </div>
-     
+
         <div ref={supportRef} style={{
           scrollMarginTop: 90,
           fontSize: 32,
@@ -633,45 +645,45 @@ function gethash(){
         }}>
 
           <a href={"https://stopaapihate.org/"} target="_blank">
-          <div style={{
-            
-            width: 200,
-            height: 200,
-          }}>
-            <img src={aapi1}/>
-          </div>
+            <div style={{
+
+              width: 200,
+              height: 200,
+            }}>
+              <img src={aapi1} />
+            </div>
           </a>
 
           <a href={"https://hateisavirus.org/"} target="_blank">
-          <div style={{
-            
-            width: 200,
-            height: 200,
-          }}><img src={aapi2}/></div>
-</a>
+            <div style={{
+
+              width: 200,
+              height: 200,
+            }}><img src={aapi2} /></div>
+          </a>
           <a href={"https://aapip.org/"} target="_blank">
-          <div style={{
-            
-            width: 200,
-            height: 200,
-          }}><img src={aapi3}/></div>
-</a>
+            <div style={{
+
+              width: 200,
+              height: 200,
+            }}><img src={aapi3} /></div>
+          </a>
           <a href={"https://www.gofundme.com/"} target="_blank">
-          <div style={{
-            display:"flex",
-            flexDirection:"row",
-            alignItems:"center",
-            justifyContent:"space-between",
-            width: 200,
-            height: 200,
-          }}><img src={aapi4}/></div>
-</a>
+            <div style={{
+              display: "flex",
+              flexDirection: "row",
+              alignItems: "center",
+              justifyContent: "space-between",
+              width: 200,
+              height: 200,
+            }}><img src={aapi4} /></div>
+          </a>
           <a href={"https://www.apcf.org/"} target="_blank">
-          <div style={{
-            
-            width: 200,
-            height: 200,
-          }}><img src={aapi5}/></div>
+            <div style={{
+
+              width: 200,
+              height: 200,
+            }}><img src={aapi5} /></div>
           </a>
         </div>
         <div style={{
@@ -682,37 +694,37 @@ function gethash(){
           marginBottom: 20,
         }}>Directly Funding Victims’ fund</div>
         <a href={"https://www.gofundme.com/f/sf-api-victims-and-survivors-assistance-fund"} target="_blank">
-        <div style={{
-          fontSize: 18,
-          opacity: 0.8,
-          lineHeight: 1.56,
-          color: "#000000",
-          textDecorationLine: "underline",
-          fontWeight: "bold",
-          marginBottom: 20
-        }}>Victims and Survivors Fund (San Francisco Bay Area)</div>
+          <div style={{
+            fontSize: 18,
+            opacity: 0.8,
+            lineHeight: 1.56,
+            color: "#000000",
+            textDecorationLine: "underline",
+            fontWeight: "bold",
+            marginBottom: 20
+          }}>Victims and Survivors Fund (San Francisco Bay Area)</div>
         </a>
         <a href={"https://www.classy.org/give/326018/#!/donation/checkout"} target="_blank">
-        <div style={{
-          fontSize: 18,
-          opacity: 0.8,
-          lineHeight: 1.56,
-          color: "#000000",
-          textDecorationLine: "underline",
-          fontWeight: "bold",
-          marginBottom: 20
-        }}>Oakland Chinatown Victims Fund</div>
+          <div style={{
+            fontSize: 18,
+            opacity: 0.8,
+            lineHeight: 1.56,
+            color: "#000000",
+            textDecorationLine: "underline",
+            fontWeight: "bold",
+            marginBottom: 20
+          }}>Oakland Chinatown Victims Fund</div>
         </a>
         <a href={"https://actionnetwork.org/fundraising/support-georgias-asian-american-community/"} target="_blank">
-        <div style={{
-          fontSize: 18,
-          opacity: 0.8,
-          lineHeight: 1.56,
-          color: "#000000",
-          textDecorationLine: "underline",
-          fontWeight: "bold",
-          marginBottom: 100
-        }}>Support Georgia’s Asian American Community</div>
+          <div style={{
+            fontSize: 18,
+            opacity: 0.8,
+            lineHeight: 1.56,
+            color: "#000000",
+            textDecorationLine: "underline",
+            fontWeight: "bold",
+            marginBottom: 100
+          }}>Support Georgia’s Asian American Community</div>
         </a>
 
         <div style={{
@@ -762,19 +774,19 @@ function gethash(){
                   marginTop: 23
                 }}>Give ETH to</div>
                 <a href={"https://etherscan.io/address/0x8A39eC10AE914CD71DE75A766D7Beb78C1286D0e"} target="_blank">
-                <input type="text" style={{
-                  marginRight: 40,
-                  marginTop: 23,
-                  fontSize: 21,
-                  fontWeight: "bold",
-                  color: "#e5bf78",
-                  textDecorationLine:"none",
-                  backgroundColor:"#3c3932",
-                  cursor:'pointer',
-                  outline:0,
-                  border:0
-                }}
-                value="0x8A39eC10AE914CD7..."></input>
+                  <input type="text" style={{
+                    marginRight: 40,
+                    marginTop: 23,
+                    fontSize: 21,
+                    fontWeight: "bold",
+                    color: "#e5bf78",
+                    textDecorationLine: "none",
+                    backgroundColor: "#3c3932",
+                    cursor: 'pointer',
+                    outline: 0,
+                    border: 0
+                  }}
+                    value="0x8A39eC10AE914CD7..."></input>
                 </a>
               </div>
 
@@ -792,8 +804,8 @@ function gethash(){
                     width: 270,
                     height: 44,
                     borderRadius: 8,
-                    textAlign:"right",
-                    fontSize:20
+                    textAlign: "right",
+                    fontSize: 20
 
                   }}
                     name="name"      //위에서 name의 값을 가져와 타겟을 가져온다.
@@ -816,7 +828,7 @@ function gethash(){
 
                     <div
                       onClick={donation} style={{
-                        
+
                         marginTop: 11.2,
                         marginLeft: 52,
                         fontSize: 18,
@@ -906,12 +918,12 @@ function gethash(){
             )
           })}
         </div>
-       
+
         <div style={{
           fontSize: 21,
           fontWeight: "bold",
           color: "#000000",
-          
+
           marginBottom: 20
         }}>Partnership and suggestions are More than welcome</div>
         <div style={{
@@ -920,42 +932,42 @@ function gethash(){
           lineHeight: 1.56,
           color: "#000000",
           marginBottom: 40,
-          
+
         }}>AAPI.NFT is alway opened to your suggestion and partnership. <br />
         We can make to great together.</div>
         <a href={"https://docs.google.com/forms/d/e/1FAIpQLSeo1t9c2r07Uxnd-ZjPT19_rxzuZr6a96NYwUim0a_f_ADhhA/viewform?usp=sf_link"} target="_blank">
-      
-        <div style={{
-          width: 290,
-          paddingTop: 20,
-          paddingBottom: 20,
-          borderRadius: 8,
-          textAlign: "center",
-          alignSelf: "center",
-          backgroundColor: "#e5bf78",
-          color: "#ffffff",
-          fontSize: 18,
-          fontWeight: "bold",
-          marginBottom: 188,
-        }}><div style={{
-          marginLeft:50,
-          textAlign: "center",
-          textDecorationLine:"none"
-        }}>
-          <input style={{
+
+          <div style={{
+            width: 290,
+            paddingTop: 20,
+            paddingBottom: 20,
+            borderRadius: 8,
+            textAlign: "center",
+            alignSelf: "center",
+            backgroundColor: "#e5bf78",
+            color: "#ffffff",
             fontSize: 18,
             fontWeight: "bold",
-            outline:0,
-            backgroundColor:"#e6bf78",
-            border:0,
-            color:"#ffffff",
-            cursor:"pointer"
-          }}value="Tell me your Story"></input>
-        
-        </div>
-        </div>
+            marginBottom: 188,
+          }}><div style={{
+            marginLeft: 50,
+            textAlign: "center",
+            textDecorationLine: "none"
+          }}>
+              <input style={{
+                fontSize: 18,
+                fontWeight: "bold",
+                outline: 0,
+                backgroundColor: "#e6bf78",
+                border: 0,
+                color: "#ffffff",
+                cursor: "pointer"
+              }} value="Tell me your Story"></input>
+
+            </div>
+          </div>
         </a>
-      
+
       </div>
       <div style={{
         width: "100%",
@@ -978,39 +990,39 @@ function gethash(){
           alignItems: "center",
         }}>
 
-<a href={"https://twitter.com/AapiNft"} target="_blank">
-          <div >
-            <img style={{
+          <a href={"https://twitter.com/AapiNft"} target="_blank">
+            <div >
+              <img style={{
                 width: 48,
-            height: 48,
-            backgroundColor: "#ffffff",
-            marginRight: 20,
-            borderRadius:24
-            }} src={twit}></img></div> 
-            </a>
+                height: 48,
+                backgroundColor: "#ffffff",
+                marginRight: 20,
+                borderRadius: 24
+              }} src={twit}></img></div>
+          </a>
           <a href={"https://www.instagram.com/aapi.nft/"} target="_blank">
-          <div >
-            <img style={{
+            <div >
+              <img style={{
                 width: 48,
-            height: 48,
-            backgroundColor: "#ffffff",
-            marginRight: 20,
-            borderRadius:24
-            }} src={ins}></img>
-          </div>
+                height: 48,
+                backgroundColor: "#ffffff",
+                marginRight: 20,
+                borderRadius: 24
+              }} src={ins}></img>
+            </div>
           </a>
           <a href={"https://t.me/aapinft"} target="_blank">
-          <div >
-            <img style={{
+            <div >
+              <img style={{
                 width: 48,
-            height: 48,
-            backgroundColor: "#ffffff",
-            marginRight: 20,
-            borderRadius:24
-            }} src={tel}></img>   
-          </div>
+                height: 48,
+                backgroundColor: "#ffffff",
+                marginRight: 20,
+                borderRadius: 24
+              }} src={tel}></img>
+            </div>
           </a>
-{/* 
+          {/* 
           <div style={{
             width: 48,
             height: 48,
