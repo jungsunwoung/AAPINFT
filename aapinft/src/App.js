@@ -219,8 +219,6 @@ function gethash(){
       position: "relative",
     }}>
       <div style={{
-        position: "fixed",
-        top: 0,
         zIndex: 1,
         width: 1280,
         paddingLeft: 200,
