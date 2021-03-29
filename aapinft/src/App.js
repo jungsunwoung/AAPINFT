@@ -203,13 +203,13 @@ function App() {
   }
 
   useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
+      window.addEventListener("scroll", handleScroll);
   }, [])
 
   const handleScroll = () => {
-    if (window.pageYOffset < 700) {
+    if (window.pageYOffset < 800) {
       dispatch({ type: "HOME" })
-    } else if (window.pageYOffset < 1600) {
+    } else if (window.pageYOffset < 1700) {
       dispatch({ type: "COLLECTION" })
     } else if (window.pageYOffset < 2700) {
       dispatch({ type: "SUPPORT" })
@@ -256,28 +256,28 @@ function App() {
         }}>
           <div onClick={home} style={{
             fontSize: 20,
-            fontWeight: category === 0 ? "bold" : "normal",
+            fontWeight: window.pageYOffset < 800 ? "bold" : "normal",
             color: "#000000",
             cursor: "pointer",
             marginRight: 20
           }}>Home</div>
           <div onClick={collection} style={{
             fontSize: 20,
-            fontWeight: category === 1 ? "bold" : "normal",
+            fontWeight: window.pageYOffset > 800 && window.pageYOffset < 1700 ? "bold" : "normal",
             color: "#000000",
             cursor: "pointer",
             marginRight: 20
           }}>Collection</div>
           <div onClick={support} style={{
             fontSize: 20,
-            fontWeight: category === 2 ? "bold" : "normal",
+            fontWeight: window.pageYOffset > 1700 && window.pageYOffset < 2700 ? "bold" : "normal",
             color: "#000000",
             cursor: "pointer",
             marginRight: 20
           }}>Support us</div>
           <div onClick={partners} style={{
             fontSize: 20,
-            fontWeight: category === 3 ? "bold" : "normal",
+            fontWeight: window.pageYOffset >= 2700 ? "bold" : "normal",
             color: "#000000",
             cursor: "pointer",
             marginRight: 40
@@ -463,33 +463,20 @@ function App() {
           marginTop: 250,
           marginBottom: 20
         }}>AS AN ARTIST WE WILL DO WHAT WE CAN DO</div>
-
-        {/* <div style={{
-          width: 660,
-          opacity: 0.8,
-
-          color: "#000000",
-          lineHeight: 1.56,
-          marginBottom: 40,
-        }}>All pieces are inspired by AAPI stories and my own experience.  As an artist and blockchain enthusiast, I would like to leave our first movement on blockchain.
-        My works will be traded in opeansea.io and 100% sales will be donated to support AAPI community movements,</div> */}
         <div style={{
           width: 660,
           opacity: 0.8,
           fontSize: 18,
           color: "#000000",
           lineHeight: 1.56,
-
         }}>All pieces are inspired by AAPI stories and my own experience. As an artist and</div> <div style={{
           width: 660,
           opacity: 0.8,
           fontSize: 18,
           color: "#000000",
           lineHeight: 1.56,
-
         }}>
           blockchain enthusiast, we would like to leave our first movement on blockchain. </div>
-
         <div
           style={{
             flexDirection: "row",
@@ -573,8 +560,6 @@ function App() {
                       <img style={{
                         width: 400,
                         height: 400,
-                        objectFit:"cover"
-                        ,
                         borderRadius: 8
                       }} src={item.img}></img>
 
@@ -583,7 +568,8 @@ function App() {
                       <img style={{
                         width: 400,
                         maxHeight: 400,
-                        borderRadius: 8
+                        borderRadius: 8,
+                        objectFit: "cover"
                       }} src={item.img}></img>
 
 
