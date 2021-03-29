@@ -573,6 +573,8 @@ function App() {
                       <img style={{
                         width: 400,
                         height: 400,
+                        objectFit:"cover"
+                        ,
                         borderRadius: 8
                       }} src={item.img}></img>
 
