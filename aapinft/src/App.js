@@ -173,7 +173,7 @@ function App() {
           })
         });
       } catch (e) {
-        console.log("Fuck")
+        
       }
     }
     // Legacy DApp Browsers
